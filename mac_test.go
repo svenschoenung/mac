@@ -1,6 +1,7 @@
 package mac
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
@@ -25,4 +26,16 @@ func TestGuessFormat(t *testing.T) {
 	testGuessFormat(t, "0000000000000000", SizeOfEUI64, &Format{SeparatedBy: NoSeparator, GroupsOf: NoGroups, WithCase: IgnoreCase})
 	testGuessFormat(t, "00_00_00_00_00_00_00_00", SizeOfEUI64, nil)
 
+}
+
+func ExampleEUI48() {
+	var addr = EUI48{0xC0, 0xDE, 0xC0, 0xDE, 0xC0, 0xDE}
+	fmt.Println(addr)
+	//Output: [192 222 192 222 192 222]
+}
+
+func ExampleEUI64() {
+	var addr = EUI64{0xC0, 0xDE, 0xC0, 0xDE, 0xC0, 0xDE, 0xC0, 0xDE}
+	fmt.Println(addr)
+	//Output: [192 222 192 222 192 222 192 222]
 }
