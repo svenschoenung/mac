@@ -12,7 +12,7 @@ type EUI48 [SizeOfEUI48]byte
 // EUI64 represents an EUI-64 address
 type EUI64 [SizeOfEUI64]byte
 
-// NoSeparator indicates that a formatted address doesn't have a seperator character
+// NoSeparator indicates that a formatted address doesn't have a separator character
 const NoSeparator = rune(0)
 
 // NoGroups indicates that a formatted address doesn't have grouped hex digits
