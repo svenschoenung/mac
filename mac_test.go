@@ -14,18 +14,17 @@ func testGuessFormat(t *testing.T, s string, sizeOfType int, expected *Format) {
 }
 
 func TestGuessFormat(t *testing.T) {
-	testGuessFormat(t, "00-00-00-00-00-00", SizeOfEUI48, &Format{SeparatedBy: '-', GroupsOf: 2, WithCase: IgnoreCase})
-	testGuessFormat(t, "00:00:00:00:00:00", SizeOfEUI48, &Format{SeparatedBy: ':', GroupsOf: 2, WithCase: IgnoreCase})
-	testGuessFormat(t, "0000.0000.0000", SizeOfEUI48, &Format{SeparatedBy: '.', GroupsOf: 4, WithCase: IgnoreCase})
-	testGuessFormat(t, "000000000000", SizeOfEUI48, &Format{SeparatedBy: NoSeparator, GroupsOf: NoGroups, WithCase: IgnoreCase})
+	testGuessFormat(t, "00-00-00-00-00-00", SizeOfEUI48, &Format{GroupsOf: 2, SeparatedBy: '-', WithCase: IgnoreCase})
+	testGuessFormat(t, "00:00:00:00:00:00", SizeOfEUI48, &Format{GroupsOf: 2, SeparatedBy: ':', WithCase: IgnoreCase})
+	testGuessFormat(t, "0000.0000.0000", SizeOfEUI48, &Format{GroupsOf: 4, SeparatedBy: '.', WithCase: IgnoreCase})
+	testGuessFormat(t, "000000000000", SizeOfEUI48, &Format{GroupsOf: NoGroups, SeparatedBy: NoSeparator, WithCase: IgnoreCase})
 	testGuessFormat(t, "00_00_00_00_00_00", SizeOfEUI48, nil)
 
-	testGuessFormat(t, "00-00-00-00-00-00-00-00", SizeOfEUI64, &Format{SeparatedBy: '-', GroupsOf: 2, WithCase: IgnoreCase})
-	testGuessFormat(t, "00:00:00:00:00:00:00:00", SizeOfEUI64, &Format{SeparatedBy: ':', GroupsOf: 2, WithCase: IgnoreCase})
-	testGuessFormat(t, "0000.0000.0000.0000", SizeOfEUI64, &Format{SeparatedBy: '.', GroupsOf: 4, WithCase: IgnoreCase})
-	testGuessFormat(t, "0000000000000000", SizeOfEUI64, &Format{SeparatedBy: NoSeparator, GroupsOf: NoGroups, WithCase: IgnoreCase})
+	testGuessFormat(t, "00-00-00-00-00-00-00-00", SizeOfEUI64, &Format{GroupsOf: 2, SeparatedBy: '-', WithCase: IgnoreCase})
+	testGuessFormat(t, "00:00:00:00:00:00:00:00", SizeOfEUI64, &Format{GroupsOf: 2, SeparatedBy: ':', WithCase: IgnoreCase})
+	testGuessFormat(t, "0000.0000.0000.0000", SizeOfEUI64, &Format{GroupsOf: 4, SeparatedBy: '.', WithCase: IgnoreCase})
+	testGuessFormat(t, "0000000000000000", SizeOfEUI64, &Format{GroupsOf: NoGroups, SeparatedBy: NoSeparator, WithCase: IgnoreCase})
 	testGuessFormat(t, "00_00_00_00_00_00_00_00", SizeOfEUI64, nil)
-
 }
 
 func ExampleEUI48() {
